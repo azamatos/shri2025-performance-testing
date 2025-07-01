@@ -6,13 +6,13 @@
     <title>Яндекс.Дом</title>
     <link
       rel="preload"
-      as="font"
-      href="assets/lato.woff2"
-      type="font/woff2"
-      crossorigin="anonymous"
+      fetchpriority="high"
+      as="image"
+      href="assets/bg@2x.webp"
+      type="image/webp"
     />
+
     <link rel="stylesheet" type="text/css" href="reset.css" />
-    <link rel="stylesheet" type="text/css" href="fonts.css" />
     <link rel="stylesheet" type="text/css" href="styles.min.css" />
   </head>
   <body>
@@ -37,7 +37,11 @@
       <div class="footer__copyright">© 1997–2023 ООО «Яндекс»</div>
     </footer>
 
-    <script defer type="text/javascript" src="vendors/react-with-dom.min.js"></script>
+    <script
+      defer
+      type="text/javascript"
+      src="vendors/react-with-dom.min.js"
+    ></script>
     <script defer type="text/javascript" src="assets/index.min.js"></script>
   </body>
 </html>
