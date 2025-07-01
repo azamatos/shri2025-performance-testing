@@ -1,8 +1,7 @@
-@import url("vendors/bootstrap.css");
 
 html {
     font-size: 100%;
-    font-family: Arial, sans-serif;
+    font-family: 'Lato', Arial, sans-serif;
     line-height: 1.25;
 }
 
@@ -36,7 +35,7 @@ html, body {
     height: 5.75rem;
     margin-bottom: 1.875rem;
     padding: 0 2.5rem;
-    font-family: Arial, sans-serif;
+    font-family: 'Lato', Arial, sans-serif;
     border-bottom: 1px solid #F0F0F0;
 }
 
@@ -54,7 +53,7 @@ html, body {
     width: 6.75rem;
     height: 2.3125rem;
     margin-right: 3.25rem;
-    background: no-repeat 50% 50% url(assets/logo.svg);
+    background: no-repeat 50% 50% url(../images/logo.svg);
     background-size: contain;
 }
 
@@ -64,7 +63,7 @@ html, body {
     height: 100%;
     margin: 0 0 0 auto;
     padding: 0;
-    background: 50% 50% no-repeat transparent url(assets/icon_list_m@1x.svg);
+    background: 50% 50% no-repeat transparent url(../images/icon_list_m@1x.svg);
     border: none;
     border-radius: 0;
     appearance: none;
@@ -223,7 +222,7 @@ html, body {
     font-size: 0.8125rem;
     font-family: inherit;
     font-weight: bold;
-    background: no-repeat calc(100% - 1rem) 50% #FFD93E url(assets/arrow-down.svg);
+    background: no-repeat calc(100% - 1rem) 50% #FFD93E url(../images/arrow-down.svg);
     appearance: none;
 }
 
@@ -275,7 +274,7 @@ html, body {
     display: flex;
     gap: 0.9375rem;
     height: 20.6875rem;
-    background: no-repeat 50% 50% url(assets/bg@2x.png);
+    background: no-repeat 50% 50% url(../images/bg@2x.png);
     /*background-size: cover;*/
     background-size: 1260px;
     border-radius: 1.25rem;
@@ -391,7 +390,7 @@ html, body {
 }
 
 .hero-dashboard__icon_rain {
-    background-image: url(assets/cloud-drizzle.svg);
+    background-image: url(../images/cloud-drizzle.svg);
 }
 
 .hero-dashboard__schedule {
@@ -459,23 +458,23 @@ html, body {
 }
 
 .event__icon_temp {
-    background-image: url(assets/icon_temperature.svg);
+    background-image: url(../images/icon_temperature.svg);
 }
 
 .event__icon_temp2 {
-    background-image: url(assets/icon_temperature_2.svg);
+    background-image: url(../images/icon_temperature_2.svg);
 }
 
 .event__icon_light {
-    background-image: url(assets/icon_sun.svg);
+    background-image: url(../images/icon_sun.svg);
 }
 
 .event__icon_light2 {
-    background-image: url(assets/icon_sun_2.svg);
+    background-image: url(../images/icon_sun_2.svg);
 }
 
 .event__icon_schedule {
-    background-image: url(assets/icon_scheduled.svg);
+    background-image: url(../images/icon_scheduled.svg);
 }
 
 .event__title {
@@ -544,7 +543,7 @@ html, body {
     right: 0;
     width: 18px;
     bottom: 10px;
-    background: no-repeat 50% 50% url(./assets/arrow-left.png);
+    background: no-repeat 50% 50% url(./../images/arrow-left.png);
     transform: rotate(180deg);
     cursor: pointer;
 }
