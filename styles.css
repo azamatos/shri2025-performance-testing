@@ -145,18 +145,17 @@ body {
 
 .header__link {
   font-weight: bold;
-  opacity: 0.6;
-  transition: opacity 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out;
   text-decoration: none;
-  color: #333333;
+  color: #666666;
 }
 
 .header__link:hover {
-  opacity: 1;
+  color: #333333;
 }
 
 .header__link_current {
-  opacity: 1;
+  color: #333333;
 }
 
 .main {
@@ -348,7 +347,7 @@ body {
 
 .hero-dashboard__item-title {
   font-size: 0.875rem;
-  color: #858585;
+  color: #595959;
 }
 
 @media (max-width: 768px) {
@@ -486,7 +485,7 @@ body {
 
 .event__subtitle {
   font-size: 0.75rem;
-  color: #858585;
+  color: #595959;
 }
 
 .event-grid {
@@ -590,19 +589,19 @@ body {
 
 .footer__link {
   font-size: 0.75rem;
-  color: #858585;
-  transition: opacity 0.15s ease-in-out;
+  color: #595959;
+  transition: color 0.15s ease-in-out;
   text-decoration: none;
 }
 
 .footer__link:hover {
-  color: #000;
+  color: #333333;
 }
 
 .footer__copyright {
   margin-left: auto;
   font-size: 0.75rem;
-  color: #858585;
+  color: #595959;
 }
 
 @media (max-width: 768px) {
