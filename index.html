@@ -36,6 +36,30 @@
     />
   </head>
   <body>
+    <header class="header">
+      <a href="/" class="header__logo" aria-label="Яндекс.Дом"></a>
+      <button class="header__menu">
+        <span class="header__menu-text a11y-hidden"> Открыть меню </span>
+      </button>
+      <ul class="header__links">
+        <li class="header__item">
+          <a
+            class="header__link header__link_current"
+            href="/"
+            aria-current="page"
+          >
+            Сводка
+          </a>
+        </li>
+        <li class="header__item">
+          <a class="header__link" href="/devices"> Устройства </a>
+        </li>
+        <li class="header__item">
+          <a class="header__link" href="/scripts"> Сценарии </a>
+        </li>
+      </ul>
+    </header>
+
     <div id="app"></div>
 
     <footer class="footer" role="contentinfo">
