@@ -4,19 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Яндекс.Дом</title>
-
     <link
       rel="preload"
-      fetchpriority="high"
-      as="image"
-      href="assets/bg@2x.webp"
-      type="image/webp"
+      as="font"
+      href="assets/lato.woff2"
+      type="font/woff2"
+      crossorigin="anonymous"
     />
-    <script src="vendors/react-with-dom.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="/reset.css" />
-    <link rel="stylesheet" type="text/css" href="/styles2.css" />
+    <script src="vendors/react-with-dom.js"></script>
+    <link rel="stylesheet" type="text/css" href="reset.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
   <body>
+    <header class="header">
+      <a href="/" class="header__logo" aria-label="Яндекс.Дом"></a>
+
+      <ul class="header__links">
+        <li class="header__item">
+          <a
+            class="header__link header__link_current"
+            href="/"
+            aria-current="page"
+          >
+            Сводка
+          </a>
+        </li>
+        <li class="header__item">
+          <a class="header__link" href="/devices"> Устройства </a>
+        </li>
+        <li class="header__item">
+          <a class="header__link" href="/scripts"> Сценарии </a>
+        </li>
+      </ul>
+    </header>
+
     <div id="app"></div>
 
     <footer class="footer">
@@ -40,81 +61,6 @@
 
     <script src="vendors/babel.min.js"></script>
     <script type="text/babel">
-      function Header() {
-        let [expanded, setExpanded] = React.useState(false);
-
-        const handleToggle = () => {
-          setExpanded((prev) => !prev);
-        };
-
-        return (
-          <header className="header">
-            <a href="/" className="header__logo" aria-label="Яндекс.Дом"></a>
-            <button
-              className="header__menu"
-              aria-expanded={expanded ? "true" : "false"}
-              onClick={handleToggle}
-            >
-              <span className="header__menu-text a11y-hidden">
-                {expanded ? "Закрыть меню" : "Открыть меню"}
-              </span>
-            </button>
-            <ul
-              className={`
-                header__links
-                ${expanded ? "header__links_opened" : "header__links-toggled"}
-              `}
-            >
-              <li className="header__item">
-                <a
-                  className="header__link header__link_current"
-                  href="/"
-                  aria-current="page"
-                >
-                  Сводка
-                </a>
-              </li>
-              <li className="header__item">
-                <a className="header__link" href="/devices">
-                  Устройства
-                </a>
-              </li>
-              <li className="header__item">
-                <a className="header__link" href="/scripts">
-                  Сценарии
-                </a>
-              </li>
-            </ul>
-          </header>
-        );
-      }
-
-      function Event(props) {
-        const ref = React.useRef();
-
-        React.useEffect(() => {
-          if (props.onSize) {
-            props.onSize(ref.current.offsetWidth);
-          }
-        });
-
-        return (
-          <li ref={ref} className={"event" + (props.slim ? " event_slim" : "")}>
-            <button className="event__button">
-              <span
-                className={`event__icon event__icon_${props.icon}`}
-                role="img"
-                aria-label={props.iconLabel}
-              ></span>
-              <h4 className="event__title">{props.title}</h4>
-              {props.subtitle && (
-                <span className="event__subtitle">{props.subtitle}</span>
-              )}
-            </button>
-          </li>
-        );
-      }
-
       const TABS = {
         all: {
           title: "Все",
@@ -244,33 +190,50 @@
           ],
         },
       };
-      for (let i = 0; i < 6; ++i) {
-        TABS.all.items = [...TABS.all.items, ...TABS.all.items];
-      }
+
+      const originalItems = TABS.all.items;
+      const multiplier = Math.pow(2, 6);
+      TABS.all.items = Array.from(
+        { length: multiplier },
+        () => originalItems
+      ).flat();
+
       const TABS_KEYS = Object.keys(TABS);
+
+      function Event(props) {
+        return (
+          <li className={"event" + (props.slim ? " event_slim" : "")}>
+            <button className="event__button">
+              <span
+                className={`event__icon event__icon_${props.icon}`}
+                role="img"
+                aria-label={props.iconLabel}
+              ></span>
+              <h4 className="event__title">{props.title}</h4>
+              {props.subtitle && (
+                <span className="event__subtitle">{props.subtitle}</span>
+              )}
+            </button>
+          </li>
+        );
+      }
 
       function Main() {
         const ref = React.useRef();
         const [activeTab, setActiveTab] = React.useState("all");
         const [hasRightScroll, setHasRightScroll] = React.useState(false);
 
+  
+
         const onSelectInput = (event) => {
           setActiveTab(event.target.value);
         };
 
-        let sumWidth = 0;
-        const onSize = (width) => {
-          sumWidth += width;
-        };
-
         React.useEffect(() => {
-          if (!ref.current) {
-            return;
-          }
-          const newHasRightScroll = sumWidth > ref.current.offsetWidth;
-          if (newHasRightScroll !== hasRightScroll) {
-            setHasRightScroll(newHasRightScroll);
-          }
+          setHasRightScroll(
+            ref.current.offsetWidth + ref.current.scrollLeft + 400 >
+              ref.current.scrollWidth
+          );
         });
 
         const onArrowCLick = () => {
@@ -414,9 +377,8 @@
                 </ul>
               </div>
 
-              <div className="section__panel-wrapper">
+              <div className="section__panel-wrapper" ref={ref}>
                 <div
-                  ref={ref}
                   role="tabpanel"
                   className="section__panel"
                   id={`panel_${activeTab}`}
@@ -424,7 +386,7 @@
                 >
                   <ul className="section__panel-list">
                     {TABS[activeTab].items.map((item, index) => (
-                      <Event key={index} {...item} onSize={onSize} />
+                      <Event key={index} {...item} />
                     ))}
                   </ul>
                 </div>
@@ -436,13 +398,9 @@
           </main>
         );
       }
+
       const root = ReactDOM.createRoot(document.getElementById("app"));
-      root.render(
-        <>
-          <Header />
-          <Main />
-        </>
-      );
+      root.render(<Main />);
     </script>
   </body>
 </html>
