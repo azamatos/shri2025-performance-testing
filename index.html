@@ -4,14 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Яндекс.Дом</title>
-    <meta
-      name="description"
-      content="Управляйте устройствами умного дома с помощью Яндекс.Дом. Просматривайте сводку, настраивайте устройства и создавайте сценарии автоматизации."
-    />
-    <meta
-      name="keywords"
-      content="умный дом, яндекс дом, автоматизация, устройства, сценарии, IoT"
-    />
+    <meta name="description" content="Управляйте устройствами умного дома с помощью Яндекс.Дом. Просматривайте сводку, настраивайте устройства и создавайте сценарии автоматизации." />
+    <meta name="keywords" content="умный дом, яндекс дом, автоматизация, устройства, сценарии, IoT" />
     <link
       rel="preload"
       fetchpriority="high"
@@ -24,6 +18,30 @@
     <link rel="stylesheet" type="text/css" href="styles.min.css" />
   </head>
   <body>
+    <header class="header" role="banner">
+      <a href="/" class="header__logo" aria-label="Яндекс.Дом - перейти на главную страницу"></a>
+
+      <nav role="navigation" aria-label="Основная навигация">
+        <ul class="header__links">
+          <li class="header__item">
+            <a
+              class="header__link header__link_current"
+              href="/"
+              aria-current="page"
+            >
+              Сводка
+            </a>
+          </li>
+          <li class="header__item">
+            <a class="header__link" href="/devices"> Устройства </a>
+          </li>
+          <li class="header__item">
+            <a class="header__link" href="/scripts"> Сценарии </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
     <div id="app"></div>
 
     <footer class="footer" role="contentinfo">
