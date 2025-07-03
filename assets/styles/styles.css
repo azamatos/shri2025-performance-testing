@@ -399,10 +399,9 @@ body {
   box-sizing: border-box;
   display: flex;
   gap: 0.9375rem;
-  height: 20.6875rem;
+
   background: no-repeat 50% 50% url(../images/bg_m@2x.webp);
-  /*background-size: cover;*/
-  background-size: 1260px;
+  background-size: cover;
   border-radius: 1.25rem;
 }
 
