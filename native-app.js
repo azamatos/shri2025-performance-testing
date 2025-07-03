@@ -619,6 +619,8 @@ function createMainComponent(appState, domGenerator) {
               {
                 tag: "select",
                 props: {
+                  "aria-label": activeTab,
+                  "aria-labelledby": "section__title-header",
                   className: "section__select",
                   onchange: (event) => {
                     appState.setState({ activeTab: event.target.value });
