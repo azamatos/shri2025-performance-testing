@@ -666,12 +666,20 @@ body {
 .section__arrow {
   position: absolute;
   top: 0;
-  right: 0;
-  width: 18px;
-  bottom: 10px;
-  background: no-repeat 50% 50% url(../images/arrow-left.png);
-  transform: rotate(180deg);
+  right: -20px;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+.section__arrow_icon {
+  transform: rotate(180deg);
+  width: 42px;
+  height: 120px;
 }
 
 .section__arrow:hover {
