@@ -668,7 +668,7 @@ body {
   right: 0;
   width: 18px;
   bottom: 10px;
-  background: no-repeat 50% 50% url(assets/images/arrow-left.png);
+  background: no-repeat 50% 50% url(assets/images/arrow-left.webp);
   transform: rotate(180deg);
   cursor: pointer;
 }
